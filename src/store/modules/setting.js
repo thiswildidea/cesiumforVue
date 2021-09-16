@@ -5,21 +5,26 @@ export default {
   namespaced: true,
   state: {
     language: getLanguage(),
-    maploaded: db.get('MAPLOADED', false),
-    map: db.get('MAP', null)
+    Viewloaded: db.get('ViewLOADED', false),
+    basemaplayers: db.get('BASEMAPLAYERS', null),
+    cesium3DTileLayers: db.get('3DTILELAYERS', null)
   },
   mutations: {
     setLanguage: (state, language) => {
       db.save('LANGUAGE', language)
       state.language = language
     },
-    setMapLoaded: (state, maploaded) => {
-      db.save('MAPLOADED', maploaded)
-      state.maploaded = maploaded
+    setViewLoaded: (state, Viewloaded) => {
+      db.save('ViewLOADED', Viewloaded)
+      state.Viewloaded = Viewloaded
     },
-    setMap: (state, map) => {
-      db.save('MAP', map)
-      state.map = map
+    setBasemapLayers: (state, basemaplayers) => {
+      db.save('BASEMAPLAYERS', basemaplayers)
+      state.basemaplayers = basemaplayers
+    },
+    setCesium3DTileLayers: (state, cesium3DTileLayers) => {
+      db.save('3DTILELAYERS', cesium3DTileLayers)
+      state.cesium3DTileLayers = cesium3DTileLayers
     }
   }
 }
