@@ -34,9 +34,12 @@ const mapctx = {
     viewer.scene.globe.depthTestAgainstTerrain = true
     viewer.imageryLayers.remove(viewer.imageryLayers.get(0))
     const baselayers = maplayersaddutils.initbasemap(viewer, mapconfig.GISService.baseMapServices)
+    viewer.scene.terrainProvider = new Cesium.CesiumTerrainProvider({
+      url: 'http://127.0.0.1/dem'
+    })
     store.commit('setting/setBasemapLayers', baselayers)
-    const cesium3DTileLayers = maplayersaddutils.addCesium3DTileLayer(viewer, mapconfig.GISService.buildingsLayers)
-    store.commit('setting/setCesium3DTileLayers', cesium3DTileLayers)
+    // const cesium3DTileLayers = maplayersaddutils.addCesium3DTileLayer(viewer, mapconfig.GISService.buildingsLayers)
+    // store.commit('setting/setCesium3DTileLayers', cesium3DTileLayers)
     return { viewer }
   }
 }
